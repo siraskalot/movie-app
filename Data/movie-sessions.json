@@ -1,0 +1,34 @@
+[
+    {
+        "id": "1",
+        "title" : "Chekka Chivantha Vaanam",
+        "sessions": [
+            {
+                "_COMMENT" : "TBD : session per cinema per location |  session per  location per cinema | best to list all sessions in per cinema per location"
+            },
+            {
+                "location"  : "Liverpool",
+                "state" : "NSW",
+                "cinema": "Event Cinemas",
+                "session-date-time" :["27/09/2018 18:00","27/09/2018 21:30", "28/09/2018 18:00"],
+                "ticket-purchase-options" :[
+                     {
+                        "action": "online",
+                        "purchase-instruction" :"buy online",
+                        "link": "https://www.eventcinemas.com.au/Movie/Chekka-Chivantha-Vanam#date=2018-09-28"
+                    },
+                    {
+                        "action": "phone",
+                        "purchase-instruction" :"Call Unkil on 041 234 567",
+                        "link": ""
+                    },
+                    {
+                        "action": "door",
+                        "purchase-instruction" :"Buy at the doors from EkMek company",
+                        "link": ""
+                    }
+                ]
+            }
+        ]
+    }
+]

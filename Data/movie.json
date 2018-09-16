@@ -1,0 +1,32 @@
+[
+    {
+        "id": "1",
+        "title" : "Chekka Chivantha Vaanam",
+        "year": "2018",
+        "rating": "5/10",
+        "running-time": "210",
+        "language": "Tamil",
+        "Synopsis": "Chekka Chivantha Vaanam (English: Crimson Red Sky) is an upcoming Indian Tamil-language crime thriller film co-written and directed by Mani Ratnam. The film features an ensemble cast including Arvind Swami, Vijay Sethupathi, Jyothika, Silambarasan, Arun Vijay, Aishwarya Rajesh, Dayana Erappa and Aditi Rao Hydari in the lead roles, while Prakash Raj, Jayasudha, Thiagarajan and Mansoor Ali Khan appearring in pivotal roles",
+        "trailer" : "https://www.youtube.com/watch?v=x2q5w-ThJeE",
+        "poster": "https://1847884116.rsc.cdn77.org/tamil/gallery/movies/manimulti2018/main.jpg",
+        "thumbnail": "https://www.behindwoods.com/tamil-movies-cinema-news-16/images/chekka-chivantha-vaanam-will-be-ar-rahmans-first-in-2018-photos-pictures-stills.jpg",
+        "lead actors" : "Arvind Swami, Vijay Sethupathi, Prakash Raj ",
+        "cast" : "Prakash Raj,Jayasudha, Aravind Swami, Vijay Sethupathi, Silambarasan, Arun Vijay, Jyothika, Aditi Rao Hydari, Aishwarya Rajesh, Dayana Erappa",
+        "crew" :{
+            "director": "Mani Ratnam",
+            "music-director" :"A. R. Rahman",
+            "producer" :"Mani Ratnam,A. Subaskaran",
+            "screenplay" : "Mani Ratnam,  Siva Ananth",
+            "editor" : " A. Sreekar Prasad",
+            "Cinematographer" : "Santosh Sivan"
+        },
+        "companies" : {
+            "production": "Madras Talkies, Lyca Productions",
+            "distribution": "Lyca Productions",
+            "music" : "Sony Music"
+        }
+
+
+
+    }
+]

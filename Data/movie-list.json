@@ -1,0 +1,30 @@
+[
+    {
+        "id": "1",
+        "title" : "Chekka Chivantha Vaanam",
+        "rating": "5/10",
+        "language": "Tamil",
+        "thumbnail": "https://www.behindwoods.com/tamil-movies-cinema-news-16/images/chekka-chivantha-vaanam-will-be-ar-rahmans-first-in-2018-photos-pictures-stills.jpg",
+        "lead actors" : "Arvind Swami, Vijay Sethupathi, Prakash Raj ",
+        "earlist-sessions": [
+            {
+                "location": "sydney", 
+                "state":"NSW",
+                "date": "27/09/2018",
+                "time": "18:00"
+            },
+            {
+                "location": "Dandenong", 
+                "state":"VIC",
+                "date": "27/09/2018",
+                "time": "18:00"
+            },
+            {
+                "location": "South Brisbane", 
+                "state":"QLD",
+                "date": "27/09/2018",
+                "time": "21:00"
+            }
+        ]
+    }
+]

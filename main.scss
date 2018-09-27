@@ -1,4 +1,11 @@
 //Variables
+
+//Form factor
+$break-small: 320px;
+$break-large: 1200px;
+
+
+
 $primary-font:'Arial';
 $font-title:'Arial';
 
@@ -75,13 +82,24 @@ body {
                 
                 .movie-poster-image{
                     display: block;
-                    width: $max-poster-width;
-                    height: $max-poster-height;
+                    
                     border: 0.5px solid;
                     border-color: #c0b9b9;
                     margin-left: auto;
                     margin-right: auto;
                     
+                    //Responsive image resizing 
+                    //Absolte max width/height for large screens
+                    @media screen and (min-width: $break-large) {
+                        width: $max-poster-width;
+                        height: $max-poster-height;                    
+                      }
+
+                    //Width to scale to 100% of the smaller screens
+                    @media screen and (min-width: $break-small) {
+                        max-width: 100%;
+                    }
+
                 }        
             }
             .movie-info{

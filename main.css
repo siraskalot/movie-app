@@ -38,12 +38,17 @@ body {
       align-items: center; }
       .movie-list-container .movie .movie-container .movie-poster .movie-poster-image {
         display: block;
-        width: 350px;
-        height: 350px;
         border: 0.5px solid;
         border-color: #c0b9b9;
         margin-left: auto;
         margin-right: auto; }
+        @media screen and (min-width: 1200px) {
+          .movie-list-container .movie .movie-container .movie-poster .movie-poster-image {
+            width: 350px;
+            height: 350px; } }
+        @media screen and (min-width: 320px) {
+          .movie-list-container .movie .movie-container .movie-poster .movie-poster-image {
+            max-width: 100%; } }
     .movie-list-container .movie .movie-container .movie-info {
       list-style: none;
       grid-area: movie-info;
@@ -59,8 +64,10 @@ body {
       .movie-list-container .movie .movie-container .movie-info .movie-next-session-location {
         padding: inherit; }
     .movie-list-container .movie .movie-container .book-movie {
+      display: inline;
       grid-area: book;
       border: solid #970e0e; }
     .movie-list-container .movie .movie-container .show-movie-details {
+      display: inline;
       grid-area: more-info;
       text-decoration: underline; }

@@ -1,0 +1,45 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  padding: 0;
+}
+.new-movies {
+  margin: 0.5em;
+}
+.movie {
+  padding: 1em;
+}
+.movie-title {
+  font-size: 30px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-stretch: semi-expanded;
+}
+
+.movie-poster {
+  width: 100%;
+}
+.movie-info {
+  list-style-type: none;
+  display: flex;
+}
+.movie-more-info {
+  text-decoration: none;
+  color: black;
+  font-size: 16px;
+}
+.movie-more-info:hover {
+  border: 1px solid black;
+  text-align: center;
+  padding: 2px;
+  border-radius: 25px;
+  color: purple;
+}
+.movie-show-time {
+  flex-direction: row;
+  flex-grow: 2;
+}
+.movie-language {
+  font-size: 16px;
+}

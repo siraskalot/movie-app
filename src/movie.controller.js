@@ -1,4 +1,10 @@
-const Movie = require("./movie.model");
+var { Movie } = require("./movie.model");
+var { Session } = require("./movie.model");
+const bodyParser = require("body-parser");
+
+var { getStatus } = require("./movie.response");
+const mongoose = require("mongoose");
+var retrieveMovie = require("./imdb");
 
 //Simple version, without validation or sanitation
 exports.test = function(req, res) {
@@ -51,4 +57,46 @@ exports.movie_create = function(req, res) {
     }
     res.send("Product Created successfully");
   });
+};
+
+//Create Movies from IMDB
+exports.movie_createbulk = function(req, res) {
+  let moviename = req.body.movies;
+  retrieveMovie(moviename)
+    .then(_movie => {
+      let session = new Session({
+        _sesionid: new mongoose.Types.ObjectId(),
+        state: "NSW"
+      }); //New Session
+
+      //Movie
+      let movie = new Movie({
+        title: _movie.title,
+        language: _movie.languages,
+        synopsis: _movie.plot,
+        trailer: "",
+        poster: _movie.poster,
+        leadActors: _movie.actors,
+        cast: _movie.actors, //duplicate of leadActors
+        crew: {
+          director: _movie.director,
+          musicDirector: ""
+        },
+        sessions: [session]
+      }); //new Movie
+
+      movie.save(function(err) {
+        if (err) {
+          //return next(err);
+          console.log(`Error occured in saving movie ${movie.title} ${err}`);
+          res.send(`{Error : ${e}`);
+        }
+        res.status(200).json(`Success : Movie  created ${movie}`);
+      });
+    }) //then
+    .catch(e => {
+      res.status(404).json({ Error: "Movie doesnt exist" });
+      
+      console.log(e);
+    });
 };

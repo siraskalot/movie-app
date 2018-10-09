@@ -62,3 +62,10 @@ typings/
 
 #VS Code Workspace files
 *.code-workspace
+
+
+#test maps
+*.map
+
+#istanbul test coverage outputs
+coverage/

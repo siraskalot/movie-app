@@ -41,7 +41,7 @@ db.on("error", console.error.bind(console, "MongoDB connection error:"));
 var app = (0, _express2.default)();
 app.use((0, _bodyParser.json)());
 app.use((0, _bodyParser.urlencoded)({ extended: false }));
-//app.use("/", mainRoutes);
+app.use("/", _app2.default);
 app.use("/movie", _movie2.default);
 
 var port = process.env.PORT || 5000;

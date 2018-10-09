@@ -14,6 +14,7 @@ router.get("/movie/test", movieController.test);
 router.put("/:id/update", movieController.movie_update);
 
 router.get("/:id", movieController.movie_details);
+router.get("/", movieController.movie_dedetailsAll);
 
 router.post("/create", movieController.movie_create);
 router.post("/createbulk", movieController.movie_createbulk);

@@ -14,7 +14,7 @@ var mongoose = require("mongoose");
 
 var dev_db_url = "mongodb://movieapp:movieapp123@ds245150.mlab.com:45150/movie-app-db";
 var mongoDB = process.env.MONGODB_URI || dev_db_url;
-mongoose.connect(mongoDB);
+mongoose.connect(mongoDB, { useNewUrlParser: true });
 mongoose.Promise = global.Promise;
 var db = mongoose.connection;
 

@@ -29,6 +29,16 @@ exports.movie_details = function (req, res) {
   });
 };
 
+//Lookup all movies
+exports.movie_dedetailsAll = function (req, res) {
+  console.log("in /movie");
+  Movie.find(function (err, movies) {
+    if (err) return err;
+    res.status(200).json(movies);
+    //res.send(movie);
+  });
+};
+
 //Delete movie with id
 exports.movie_delete = function (req, res) {
   Movie.findByIdAndRemove(req.params.id, function (err) {
@@ -95,7 +105,7 @@ exports.movie_createbulk = function (req, res) {
         console.log("Error occured in saving movie " + movie.title + " " + err);
         res.send("{Error : " + e);
       }
-      res.status(200).json("Success : Movie  created " + movie);
+      res.status(200).json("{Success : Movie  created} " + movie);
     });
   }) //then
   .catch(function (e) {

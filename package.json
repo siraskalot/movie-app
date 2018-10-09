@@ -2,7 +2,7 @@
   "name": "movie-app",
   "version": "1.0.0",
   "description": "Online directory for Indian movies currently showing in Australia",
-  "main": "app/appBackend.js",  
+  "main": "app/appBackend.js",
   "scripts": {
     "start": "node --require dotenv/config app/appBackend.js",
     "locallaunch": "start chrome public/app.html",

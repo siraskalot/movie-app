@@ -7,6 +7,7 @@
 //------ improments required to reuse functions in creating elements
 
 // Calling the movie result api
+//include("xmlhttprequest").XMLHttpRequest;
 
 var xhr = new XMLHttpRequest();
 xhr.responseType = "json";
@@ -21,7 +22,7 @@ xhr.onreadystatechange = function () {
 xhr.open("GET", "https://salty-sea-40504.herokuapp.com/movies");
 xhr.send();
 
-displayResult = function displayResult(response) {
+var displayResult = function displayResult(response) {
   var responseDataArry = response;
   console.log(responseDataArry[0]);
 
@@ -36,4 +37,3 @@ displayResult = function displayResult(response) {
   var resultElement = document.querySelector("#movies");
   resultElement.innerHTML = movieElement;
 };
-//# sourceMappingURL=app.js.map

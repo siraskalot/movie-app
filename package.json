@@ -26,11 +26,12 @@
   },
   "scripts": {
     "start": "node app/app.js",
+    "locallaunch": "start chrome public/app.html",
     "test": "mocha -- app/**/test/*.js --recursive ||true",
     "coverage": "istanbul cover node_modules/mocha/bin/_mocha -- --recursive",
     "coverage-report": "start chrome coverage/lcov-report/index.html",
-    "compile": "babel src --out-dir app --source-maps --watch"
-    },
+    "compile": "babel src --out-dir app  --watch"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/not-a-unicorn/movie-app.git"

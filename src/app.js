@@ -5,6 +5,7 @@
 //------ improments required to reuse functions in creating elements
 
 // Calling the movie result api
+//include("xmlhttprequest").XMLHttpRequest;
 
 const xhr = new XMLHttpRequest();
 xhr.responseType = "json";
@@ -19,7 +20,7 @@ xhr.onreadystatechange = () => {
 xhr.open("GET", "https://salty-sea-40504.herokuapp.com/movies");
 xhr.send();
 
-displayResult = response => {
+let displayResult = response => {
   let responseDataArry = response;
   console.log(responseDataArry[0]);
 

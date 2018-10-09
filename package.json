@@ -2,7 +2,15 @@
   "name": "movie-app",
   "version": "1.0.0",
   "description": "Online directory for Indian movies currently showing in Australia",
-  "main": "app/app.js",
+  "main": "app/appBackend.js",  
+  "scripts": {
+    "startnew": "node --require dotenv/config app/appBackend.js",
+    "locallaunch": "start chrome public/app.html",
+    "test": "mocha -- app/**/test/*.js --recursive ||true",
+    "coverage": "istanbul cover node_modules/mocha/bin/_mocha -- --recursive",
+    "coverage-report": "start chrome coverage/lcov-report/index.html",
+    "compile": "babel src --out-dir app  --watch"
+  },
   "dependencies": {
     "body-parser": "^1.18.3",
     "dotenv": "^6.1.0",
@@ -24,14 +32,6 @@
     "presets": [
       "latest"
     ]
-  },
-  "scripts": {
-    "startnew": "node --require dotenv/config app/appBackend.js",
-    "locallaunch": "start chrome public/app.html",
-    "test": "mocha -- app/**/test/*.js --recursive ||true",
-    "coverage": "istanbul cover node_modules/mocha/bin/_mocha -- --recursive",
-    "coverage-report": "start chrome coverage/lcov-report/index.html",
-    "compile": "babel src --out-dir app  --watch"
   },
   "repository": {
     "type": "git",

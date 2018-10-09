@@ -17,7 +17,7 @@ router.get("/", function (req, res) {
   // res.set("Content-Type", "text/html");
 
   // res.render("/../public/app.html");
-  // console.log(res.path); 
+  console.log(res.path);
   //res.render("/../public/app.html");
 
   //res.sendFile(path.join(__dirname+'/../public/app.html'));

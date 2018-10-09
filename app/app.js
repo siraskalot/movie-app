@@ -1,34 +1,26 @@
-// @gokuvinoth
-// 03/Oct/2018 Initial Draft
-// 07/Oct/2018 modified as per the comments to simply code
-// to retrive the movie list from api and display in the app.html
-//------ improments required to reuse functions in creating elements
+//   create final element and append to display the full content in HTML
+let resultElement = document.querySelector('#movies');
 
 // Calling the movie result api
 
 const xhr = new XMLHttpRequest();
-xhr.responseType = "json";
+xhr.responseType = 'json';
 xhr.onreadystatechange = () => {
   if (xhr.readyState === XMLHttpRequest.DONE) {
-    console.log(xhr.response);
     // function call to process api result
-    displayResult(xhr.response);
+    resultElement.innerHTML = xhr.response
+      .map(data => renderHtml(data))
+      .join('\n');
+    console.log(xhr.response.map(data => renderHtml(data)).join('\n'));
   }
 };
 // url to call api
-xhr.open("GET", "https://salty-sea-40504.herokuapp.com/movies");
+xhr.open('GET', 'https://salty-sea-40504.herokuapp.com/movies');
 xhr.send();
 
-displayResult = response => {
-  let responseDataArry = response;
-  console.log(responseDataArry[0]);
-
-  let movieElement = "";
-  //   looping to create elements for number of items returned
-  responseDataArry.forEach(function(responseData) {
-    movieElement =
-      movieElement +
-      `<div class="movie">
+// mapping response to respective HTML elements
+renderHtml = responseData => {
+  return `<div class="movie">
     <h2 class="movie-title" id="movietitle">${responseData.title}</h2>
     <img class="movie-poster" id="movieposter" src="${
       responseData.poster
@@ -42,10 +34,4 @@ displayResult = response => {
         }</li>
     </ul>
 </div>`;
-
-    console.log(movieElement);
-  });
-  //   create final element and append to display the full content in HTML
-  let resultElement = document.querySelector("#movies");
-  resultElement.innerHTML = movieElement;
 };

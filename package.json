@@ -4,7 +4,7 @@
   "description": "Online directory for Indian movies currently showing in Australia",
   "main": "app/appBackend.js",  
   "scripts": {
-    "startnew": "node --require dotenv/config app/appBackend.js",
+    "start": "node --require dotenv/config app/appBackend.js",
     "locallaunch": "start chrome public/app.html",
     "test": "mocha -- app/**/test/*.js --recursive ||true",
     "coverage": "istanbul cover node_modules/mocha/bin/_mocha -- --recursive",

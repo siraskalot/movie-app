@@ -10,9 +10,13 @@ import movieRoutes from "./movie.route";
 const mongoose = require("mongoose");
 
 //Specfic URI in Environment variables takes precedence
-const mongoDB = process.env.DB_URI || `mongodb://${process.env.DB_USER}:${process.env.DB_PASSWORD}@${process.env.DB_HOST}/${process.env.DB_NAME}`;
- 
+const mongoDB =
+  process.env.DB_URI ||
+  `mongodb://${process.env.DB_USER}:${process.env.DB_PASSWORD}@${
+    process.env.DB_HOST
+  }/${process.env.DB_NAME}`;
 
+  console.log(mongoDB);
 mongoose.connect(
   mongoDB,
   { useNewUrlParser: true }
@@ -33,7 +37,7 @@ app.use(urlencoded({ extended: false }));
 //app.use("/", mainRoutes);
 app.use("/movie", movieRoutes);
 
-let port = 1234;
+let port = process.env.PORT || 5000;
 
 app.listen(port, () => {
   console.log("Movie App server is up and running on port numner " + port);

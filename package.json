@@ -30,7 +30,7 @@
     "coverage": "istanbul cover node_modules/mocha/bin/_mocha -- --recursive",
     "coverage-report": "start chrome coverage/lcov-report/index.html",
     "compile": "babel src --out-dir app --source-maps --watch"
-  },
+    },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/not-a-unicorn/movie-app.git"

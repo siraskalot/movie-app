@@ -27,7 +27,6 @@
   },
   "scripts": {
     "startnew": "node --require dotenv/config app/appBackend.js",
-    "start": "node app/app.js",
     "locallaunch": "start chrome public/app.html",
     "test": "mocha -- app/**/test/*.js --recursive ||true",
     "coverage": "istanbul cover node_modules/mocha/bin/_mocha -- --recursive",

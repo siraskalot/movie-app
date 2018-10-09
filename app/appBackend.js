@@ -20,10 +20,12 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 
 //import appwide routes
+//require("dotenv").config({path: "../.env", debug: process.env.DEBUG}); //ENV variables loaded from package.json
 var mongoose = require("mongoose");
 
-var dev_db_url = "mongodb://movieapp:movieapp123@ds245150.mlab.com:45150/movie-app-db";
-var mongoDB = process.env.MONGODB_URI || dev_db_url;
+//Specfic URI in Environment variables takes precedence
+var mongoDB = process.env.DB_URI || "mongodb://" + process.env.DB_USER + ":" + process.env.DB_PASSWORD + "@" + process.env.DB_HOST + "/" + process.env.DB_NAME;
+
 mongoose.connect(mongoDB, { useNewUrlParser: true });
 mongoose.Promise = global.Promise;
 var db = mongoose.connection;
@@ -46,10 +48,3 @@ var port = 1234;
 app.listen(port, function () {
   console.log("Movie App server is up and running on port numner " + port);
 });
-
-//let envresult = require("dotenv").config({path: "../.env", debug: process.env.DEBUG}); //module to load ENV variables
-
-//console.log(envresult.parsed);
-
-console.log(process.env.DB_PASSWORD); // baconpancakes
-console.log(process.env.DB_USER); // root

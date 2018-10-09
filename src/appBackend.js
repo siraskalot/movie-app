@@ -1,3 +1,4 @@
+//require("dotenv").config({path: "../.env", debug: process.env.DEBUG}); //ENV variables loaded from package.json
 import express from "express";
 import { json, urlencoded } from "body-parser";
 
@@ -8,9 +9,10 @@ import movieRoutes from "./movie.route";
 // Set up mongoose connection
 const mongoose = require("mongoose");
 
-let dev_db_url =
-  "mongodb://movieapp:movieapp123@ds245150.mlab.com:45150/movie-app-db";
-const mongoDB = process.env.MONGODB_URI || dev_db_url;
+//Specfic URI in Environment variables takes precedence
+const mongoDB = process.env.DB_URI || `mongodb://${process.env.DB_USER}:${process.env.DB_PASSWORD}@${process.env.DB_HOST}/${process.env.DB_NAME}`;
+ 
+
 mongoose.connect(
   mongoDB,
   { useNewUrlParser: true }
@@ -36,10 +38,3 @@ let port = 1234;
 app.listen(port, () => {
   console.log("Movie App server is up and running on port numner " + port);
 });
-
-//let envresult = require("dotenv").config({path: "../.env", debug: process.env.DEBUG}); //module to load ENV variables
-
-//console.log(envresult.parsed);
-
-console.log(process.env.DB_PASSWORD) // baconpancakes
-console.log(process.env.DB_USER) // root

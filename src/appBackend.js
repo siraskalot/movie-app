@@ -1,24 +1,22 @@
-//require("dotenv").config({path: "../.env", debug: process.env.DEBUG}); //ENV variables loaded from package.json
-import express from "express";
-import { json, urlencoded } from "body-parser";
-
-//import appwide routes
-import mainRoutes from "./app.route";
-import movieRoutes from "./movie.route";
-
-// Set up mongoose connection
+const express = require("express");
+const app = express();
+const morgan = require("morgan");
+const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 
-//Specfic URI in Environment variables takes precedence
-const mongoDB =
+//import appwide routes
+import appRoutes from "./app.route";
+import movieRoutes from "./movie.route";
+
+// Set up mongoose connection - Specfic URI in Environment variables takes precedence
+const dbURI =
   process.env.DB_URI ||
   `mongodb://${process.env.DB_USER}:${process.env.DB_PASSWORD}@${
     process.env.DB_HOST
   }/${process.env.DB_NAME}`;
-
-  console.log(mongoDB);
+console.log(process.env.DB_URI);
 mongoose.connect(
-  mongoDB,
+  dbURI,
   { useNewUrlParser: true }
 );
 mongoose.Promise = global.Promise;
@@ -26,17 +24,29 @@ const db = mongoose.connection;
 
 db.on("error", console.error.bind(console, "MongoDB connection error:"));
 
-// mongoose.connection.collections['movies'].drop( function(err) {
-//   console.log('collection dropped');
-// });
-
 //Web Server
-const app = express();
-app.use(json());
-app.use(urlencoded({ extended: false }));
+app.use(morgan("dev")); //HTTP request logger
+
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept, Authorization"
+  );
+  if (req.method === "OPTIONS") {
+    res.header("Access-Control-Allow-Methods", "PUT, POST, PATCH, DELETE, GET");
+    return res.status(200).json({});
+  }
+  next();
+});
+
+//Assign Route definitions to the request
 
 //app.use("/", mainRoutes);
-app.use("/movie", movieRoutes);
+app.use(["/movie", "/movies"], movieRoutes);
 
 let port = process.env.PORT || 5000;
 

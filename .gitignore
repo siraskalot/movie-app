@@ -55,10 +55,17 @@ typings/
 .yarn-integrity
 
 # dotenv environment variables file
-.env
+#.env
 
 # next.js build output
 .next
 
 #VS Code Workspace files
 *.code-workspace
+
+
+#test maps
+*.map
+
+#istanbul test coverage outputs
+coverage/

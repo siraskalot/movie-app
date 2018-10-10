@@ -1,2 +1,2 @@
 # movie-app
-Group projects
+Group project

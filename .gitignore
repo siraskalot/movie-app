@@ -63,9 +63,12 @@ typings/
 #VS Code Workspace files
 *.code-workspace
 
+#Gulp Config
+gulpfile.js
 
 #test maps
 *.map
 
 #istanbul test coverage outputs
 coverage/
+

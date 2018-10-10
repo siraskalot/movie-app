@@ -21,7 +21,7 @@ var mongoose = require("mongoose");
 
 // Set up mongoose connection - Specfic URI in Environment variables takes precedence
 var dbURI = process.env.DB_URI || "mongodb://" + process.env.DB_USER + ":" + process.env.DB_PASSWORD + "@" + process.env.DB_HOST + "/" + process.env.DB_NAME;
-console.log(process.env.DB_URI);
+
 mongoose.connect(dbURI, { useNewUrlParser: true });
 mongoose.Promise = global.Promise;
 var db = mongoose.connection;
